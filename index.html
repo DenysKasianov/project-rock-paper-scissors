@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+    <h1>Welcome to the Rock, Paper, Scissors game!</h1>
+    <h2>This game is intended to play only in Google Chromme Console. To start the game please open you console by pressing command + option + J (on your Mac machine) OR Ctrl + Shift + J (on your Windows machine).</h2>
+    <button onclick="playGame()">Play!</button>
+
+
+    <script>
+
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        let humanSelection;
+        let computerSelection;
+
+
+        // Create a new function named getComputerChoice
+        function getComputerChoice() {
+            let computerChoice = (Math.floor(Math.random() *100) +1);
+            if (computerChoice <= 33) {
+                return computerChoice = "rock";
+            }
+            else if (computerChoice >= 34 && computerChoice <= 66) {
+                return computerChoice = "paper";
+            }
+            else {
+                return computerChoice = "scissors";
+            }
+        }
+
+        function getHumanChoice() {
+            let humanChoice = prompt("Type your choice - 'rock', 'paper' or 'scissors'");
+            return humanChoice;
+        }
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice == "rock" && computerChoice == "scissors") {
+                humanScore++;
+                return console.log("You Win! Rock beats Scissors");
+            }
+            else if (humanChoice == "paper" && computerChoice == "rock") {
+                humanScore++;
+                return console.log("You Win! Paper beats Rock"); 
+            }
+            else if (humanChoice == "scissors" && computerChoice == "paper") {
+                humanScore++;
+                return console.log("You Win! Scissors beats Paper");
+            }
+            else if (humanChoice == "rock" && computerChoice == "paper") {
+                computerScore++;
+                return console.log("Computer Won! Paper beats Rock");
+            }
+            else if (humanChoice == "paper" && computerChoice == "scissors") { 
+                computerScore++;
+                return console.log("Computer Won! Scissors beats Paper"); 
+            }
+            else if (humanChoice == "scissors" && computerChoice == "rock") {
+                computerScore++;
+                return console.log("Computer Won! Rock beats Scissors");
+            }
+            else if (humanChoice == "rock" && computerChoice == "rock") {
+                return console.log("Draw!");
+            }
+            else if (humanChoice == "paper" && computerChoice == "paper") {
+                return console.log("Draw!"); 
+            }
+            else if (humanChoice == "scissors" && computerChoice == "scissors") {
+                return console.log("Draw!");
+            }
+        }
+
+        function getSelection() {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+        }
+
+        function getScore() {
+            console.log('Human score: ' + humanScore);
+            console.log('Computer score: ' + computerScore);
+        }
+
+
+        function playGame() {
+            getSelection();
+            playRound(humanSelection, computerSelection);
+            getScore();
+            getSelection();
+            playRound(humanSelection, computerSelection);
+            getScore();
+            getSelection();
+            playRound(humanSelection, computerSelection);
+            getScore();
+            getSelection();
+            playRound(humanSelection, computerSelection);
+            getScore();
+            getSelection();
+            playRound(humanSelection, computerSelection);
+            getScore();
+        }
+
+        // playGame();
+
+       
+
+    </script>
+
+    
+</body>
+</html>
