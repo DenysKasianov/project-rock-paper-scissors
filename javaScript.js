@@ -20,17 +20,17 @@ function getComputerChoice() {
 function getHumanChoice() {
   let rock = document.getElementById("rockImage");
   rock.addEventListener("click", (event) => {
-    return alert("rock clicked");
+    return (humanChoice = "rock");
   });
 
   let paper = document.getElementById("paperImage");
   paper.addEventListener("click", (event) => {
-    return alert("paper clicked");
+    return (humanChoice = "paper");
   });
 
   let scissors = document.getElementById("scissorsImage");
   scissors.addEventListener("click", (event) => {
-    return alert("scissors clicked");
+    return (humanChoice = "scissors");
   });
 }
 
