@@ -1,77 +1,72 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let humanChoice;
+let computerChoice;
 
-let humanSelection;
-let computerSelection;
+const parentDiv = document.getElementsByClassName("mainContainer");
+const h3 = document.createElement("h3");
+parentDiv[0].appendChild(h3);
+
+const humanScoreDisplay = document.createElement("p");
+parentDiv[0].appendChild(humanScoreDisplay);
+
+const computerScoreDisplay = document.createElement("p");
+parentDiv[0].appendChild(computerScoreDisplay);
+
+let rock = document
+  .getElementById("rockImage")
+  .addEventListener("click", (event) => {
+    onHumanPick("rock");
+  });
+
+let paper = document
+  .getElementById("paperImage")
+  .addEventListener("click", (event) => {
+    onHumanPick("paper");
+  });
+
+let scissors = document
+  .getElementById("scissorsImage")
+  .addEventListener("click", (event) => {
+    onHumanPick("scissors");
+  });
 
 function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 100);
-  if (computerChoice <= 33) {
+  let computerSelection = Math.floor(Math.random() * 100);
+  if (computerSelection <= 33) {
     return (computerChoice = "rock");
-  } else if (computerChoice >= 34 && computerChoice <= 66) {
+  } else if (computerSelection >= 34 && computerSelection <= 66) {
     return (computerChoice = "paper");
   } else {
     return (computerChoice = "scissors");
   }
 }
 
-function getHumanChoice() {
-  let rock = document.getElementById("rockImage");
-  rock.addEventListener("click", (event) => {
-    return (humanChoice = "rock");
-  });
-
-  let paper = document.getElementById("paperImage");
-  paper.addEventListener("click", (event) => {
-    return (humanChoice = "paper");
-  });
-
-  let scissors = document.getElementById("scissorsImage");
-  scissors.addEventListener("click", (event) => {
-    return (humanChoice = "scissors");
-  });
-}
-
-function playRound(humanChoice, computerChoice) {
+function onHumanPick(humanChoice) {
+  getComputerChoice();
   if (humanChoice == "rock" && computerChoice == "scissors") {
     humanScore++;
-    return console.log("You Win! Rock beats Scissors");
+    h3.textContent = "You Win! Rock beats Scissors";
+    humanScoreDisplay.textContent = "Human Score = " + humanScore;
   } else if (humanChoice == "paper" && computerChoice == "rock") {
     humanScore++;
-    return console.log("You Win! Paper beats Rock");
+    h3.textContent = "You Win! Paper beats Rock";
+    humanScoreDisplay.textContent = "Human Score = " + humanScore;
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
     humanScore++;
-    return console.log("You Win! Scissors beats Paper");
+    h3.textContent = "You Win! Scissors beats Paper";
+    humanScoreDisplay.textContent = "Human Score = " + humanScore;
   } else if (humanChoice == "rock" && computerChoice == "paper") {
     computerScore++;
-    return console.log("Computer Won! Paper beats Rock");
+    h3.textContent = "You Lose! Paper beats Rock";
+    computerScoreDisplay.textContent = "Computer Score = " + computerScore;
   } else if (humanChoice == "paper" && computerChoice == "scissors") {
     computerScore++;
-    return console.log("Computer Won! Scissors beats Paper");
+    h3.textContent = "You Lose! Scissors beats Paper";
+    computerScoreDisplay.textContent = "Computer Score = " + computerScore;
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
     computerScore++;
-    return console.log("Computer Won! Rock beats Scissors");
-  } else if (humanChoice == "rock" && computerChoice == "rock") {
-    return console.log("Draw!");
-  } else if (humanChoice == "paper" && computerChoice == "paper") {
-    return console.log("Draw!");
-  } else if (humanChoice == "scissors" && computerChoice == "scissors") {
-    return console.log("Draw!");
-  }
+    h3.textContent = "You Lose! Rock beats Scissors";
+    computerScoreDisplay.textContent = "Computer Score = " + computerScore;
+  } else h3.textContent = "Draw!";
 }
-
-function getSelection() {
-  humanSelection = getHumanChoice().toLowerCase();
-  computerSelection = getComputerChoice();
-}
-
-function getScore() {
-  console.log("Human score: " + humanScore);
-  console.log("Computer score: " + computerScore);
-}
-
-function playGame() {}
-
-// playGame();
