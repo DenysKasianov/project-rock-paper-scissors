@@ -1,12 +1,13 @@
 let humanScore = 0;
 let computerScore = 0;
 
+let humanChoice;
+
 let humanSelection;
 let computerSelection;
 
-// Create a new function named getComputerChoice
 function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 100) + 1;
+  let computerChoice = Math.floor(Math.random() * 100);
   if (computerChoice <= 33) {
     return (computerChoice = "rock");
   } else if (computerChoice >= 34 && computerChoice <= 66) {
@@ -17,8 +18,20 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let humanChoice = prompt("Type your choice - 'rock', 'paper' or 'scissors'");
-  return humanChoice;
+  let rock = document.getElementById("rockImage");
+  rock.addEventListener("click", (event) => {
+    return alert("rock clicked");
+  });
+
+  let paper = document.getElementById("paperImage");
+  paper.addEventListener("click", (event) => {
+    return alert("paper clicked");
+  });
+
+  let scissors = document.getElementById("scissorsImage");
+  scissors.addEventListener("click", (event) => {
+    return alert("scissors clicked");
+  });
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -59,22 +72,6 @@ function getScore() {
   console.log("Computer score: " + computerScore);
 }
 
-function playGame() {
-  getSelection();
-  playRound(humanSelection, computerSelection);
-  getScore();
-  getSelection();
-  playRound(humanSelection, computerSelection);
-  getScore();
-  getSelection();
-  playRound(humanSelection, computerSelection);
-  getScore();
-  getSelection();
-  playRound(humanSelection, computerSelection);
-  getScore();
-  getSelection();
-  playRound(humanSelection, computerSelection);
-  getScore();
-}
+function playGame() {}
 
 // playGame();
