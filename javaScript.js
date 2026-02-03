@@ -70,14 +70,12 @@ function endGame() {
     h3.style.display = "none";
     gameOverDisplay.style.display = "block";
     resetButton.style.display = "block";
-    resetButton.style.display = "block";
     return;
   } else if (computerScore == 5) {
     gameOver = true;
     gameOverDisplay.textContent = "Game Over! You Lose!";
     h3.style.display = "none";
     gameOverDisplay.style.display = "block";
-    resetButton.style.display = "block";
     resetButton.style.display = "block";
     return;
   }
